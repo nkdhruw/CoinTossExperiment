@@ -7,7 +7,7 @@ def plotPMF(data, bins = 50):
     plt.bar(bins[:-1],heights,width=(max(bins) - min(bins))/len(bins), color="blue", alpha=0.5)
     plt.show()
 
-def cointTossExperiment(heads, tails, ntrials=1000):
+def coinTossExperiment(heads, tails, ntrials=1000):
     ntosses = heads + tails
     diffs = []
     for i in range(ntrials):
@@ -28,11 +28,11 @@ def pValue(diffs, observed_diff):
     return p
 
 def main():
-    heads = 140
-    tails = 90
+    heads = 80
+    tails = 110
     ntrials = 1000
-    diffs = cointTossExperiment(heads, tails, ntrials)
-    print('P value: ', pValue(diffs, heads-tails))
+    diffs = coinTossExperiment(heads, tails, ntrials)
+    print('P value: ', pValue(diffs, abs(heads-tails)))
 
 if __name__ == '__main__':
     main()
